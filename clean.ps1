@@ -1,3 +1,18 @@
+## ############################### ##
+## Clean C:\Users\Default\ folders ##
+## ############################### ##
+Write-Output "Cleaning upp..."
+Remove-Item C:\Users\Default\Documents\* -Recurse -Force
+Remove-Item C:\Users\Default\Desktop\* -Recurse -Force
+
+## ########### ##
+## Unzip files ##
+## ########### ##
+Write-Output "Preparing for install..."
+Expand-Archive documents.zip -DestinationPath C:\Users\Default\Documents\
+Expand-Archive desktop.zip -DestinationPath C:\Users\Default\Desktop\
+
+
 ## ###################### ##
 ## Log off User Deltagare ##
 ## ###################### ##
