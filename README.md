@@ -21,7 +21,7 @@ Detta program tar bort och skapar ett nytt deltagarkonto samt installerar de pro
 
 ## Användning (Vid varje installation)
  - Högerklicka på startmenyn och välj "Windows PowerShell (Administratör)"
- - Skriv `C:`
+ - Skriv `cd /`
  - Skriv `./clean` 
  - Klar, stäng av datorn och rengör den
  
