@@ -1,19 +1,28 @@
-# HelloWorld Datoråterställning
+# Återställningsrutin 3.0
+Detta program tar bort och skapar ett nytt deltagarkonto samt installerar de program som tidigare gjordes av HelloUnzip.
 
-Återställer Hello Worlds datorer genom att logga ut, ta bort och sedan skapa användaren Deltagare. 
+## Förberedelse och installation på datorn (En gång per dator)
+ - Ladda ner clean.ps1 och de två .zip-filerna till ett USB-minne
+ - Plugga in USB-minnet i den dator som ska återställas
+ - Logga in på admin-kontot (Hello World), du behöver inte logga ut från deltagarkontot
+ - Högerklicka på startmenyn och välj "Windows PowerShell (Administratör)"
+ - Kör kommandot `Set-ExecutionPolicy Unrestricted` för att tillåta scriptet att köras. (Tab-completion finns).
+ - Koppiera clean.ps1 och .zip-filerna till C: på datorn
 
-### Användning:
- - Ladda ner clean.ps1 på ett USB-minne (gärna samma USB-minne som övriga installationsfiler för datorerna, ex HelloUnzip).
- - Sätt i USB-minnet i den dator som ska återställas.
- - Logga in på HelloWorld kontot (Administratörskontot). Du behöver inte logga ut från deltagarkontot. 
- - Högerklicka på startmenyn och sedan "Windows Powershell (Administratör)"
- - Gå till den mapp som scriptet ligger i, antagligen D:
- - Utför kommandot `Set-ExecutionPolicy Unrestricted` för att tillåta scriptet att köras. (Tab-completion finns). Detta måste endast göras en gång per dator, om detta script använts på datorn tidigare kan detta steg skippas. 
- - kör clean-scriptet genom att skriva `.\clean.ps1`
- - Logga in på användaren Deltagare
- - Kör HelloUnzipStudio som vanligt.
- - Stäng av och rengör datorn
- - Klar
+## Återställning utan att installera på datorn
+ - Ladda ner clean.ps1 och de två .zip-filerna till ett USB-minne
+ - Plugga in USB-minnet i den dator som ska återställas
+ - Logga in på admin-kontot (Hello World), du behöver inte logga ut från deltagarkontot
+ - Högerklicka på startmenyn och välj "Windows PowerShell (Administratör)"
+ - Kör kommandot `Set-ExecutionPolicy Unrestricted` för att tillåta scriptet att köras. (Tab-completion finns).
+ - Skriv `D:` (Eller vilken bokstav USB-minnet sitter på)
+ - Skriv `./clean`
+ - Klar, stäng av datorn och rengör den
+
+## Användning (Vid varje installation)
+ - Högerklicka på startmenyn och välj "Windows PowerShell (Administratör)"
+ - Skriv `C:`
+ - Skriv `./clean` 
+ - Klar, stäng av datorn och rengör den
  
- För frågor pinga @isak på slack. 
- 
+ För frågor pinga @isak på slack.
