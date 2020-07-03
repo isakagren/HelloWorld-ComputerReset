@@ -1,1 +1,1 @@
-mkdir "test"
+mkdir "c:/reset/update/downloads"
