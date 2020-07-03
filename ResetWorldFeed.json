@@ -1,5 +1,5 @@
 {
   "ResetVersion": 0,
   "SoftwareVersion": 1,
-  "UpdateScriptUrl": "hejhej"
+  "UpdateScriptUrl": "https://raw.githubusercontent.com/isakagren/HelloWorld-ComputerReset/master/update-test.ps1"
 }
