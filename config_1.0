@@ -1,0 +1,7 @@
+{
+  "ResetVersion": 0,
+  "SoftwareVersion": 1,
+  "UpdateUrl": "https://raw.githubusercontent.com/isakagren/HelloWorld-ComputerReset/master/ResetWorldFeed.json",
+  "MaxPing": 1000,
+  "PingURL": "www.google.com"
+}
