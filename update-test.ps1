@@ -16,7 +16,6 @@ mkdir $desktop_context_folder
 
 # Download files
 
-
 Remove-Item "C:/reset/update/downloads" -Force -Recurse -ErrorAction Ignore
 mkdir "C:/reset/update/downloads"
 
@@ -24,16 +23,41 @@ $user_download = "C:\reset\update\downloads\userctx.zip"
 $global_download = "C:\reset\update\downloads\globalctx.zip"
 $desktop_download = "C:\reset\update\downloads\desktopctx.zip"
 
-$url_global = "https://drive.google.com/uc?export=download&id=1RqcX7JZ1rVE6zAIuJJR1lkJNB2mffERx"
-$url_user = "https://drive.google.com/uc?export=download&id=1WCzscsc8Wn7URTZU93GEIXgP_DSDcdra"
+$url_global = "https://drive.google.com/uc?export=download&confirm=2fTm&id=1RqcX7JZ1rVE6zAIuJJR1lkJNB2mffERx"
+$url_user = "https://drive.google.com/uc?export=download&confirm=tZCB&id=1WCzscsc8Wn7URTZU93GEIXgP_DSDcdra"
 $url_desktop = "https://drive.google.com/uc?export=download&id=1v_2ibnM0LJRwTBKr0cB5cvHPNW1tn4qQ"
 
 
-# Download user context files
-Invoke-WebRequest -Uri $url_user -OutFile $user_download
+## Funktion för att ladda ner stora filer från Google Drive, då de kräver att man klickar OK för stora filer. 
+function large_file_download {
+param(
+[string]$GoogleFileId,
+[string]$FileDestination)
 
-# Download global context files
-Invoke-WebRequest -Uri $url_global -OutFile $global_download
+# set protocol to tls version 1.2
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+echo "https://drive.google.com/uc?export=download&id=$GoogleFileId"
+
+# Download the Virus Warning into _tmp.txt
+Invoke-WebRequest -Uri "https://drive.google.com/uc?export=download&id=$GoogleFileId" -OutFile "_tmp.txt" -SessionVariable googleDriveSession
+
+# Get confirmation code from _tmp.txt
+$searchString = Select-String -Path "_tmp.txt" -Pattern "confirm="
+$searchString -match "confirm=(?<content>.*)&amp;id="
+$confirmCode = $matches['content']
+
+# Delete _tmp.txt
+Remove-Item "_tmp.txt"
+
+# Download the real file
+Invoke-WebRequest -Uri "https://drive.google.com/uc?export=download&confirm=${confirmCode}&id=$GoogleFileId" -OutFile $FileDestination -WebSession $googleDriveSession
+}
+
+# Download user context files
+large_file_download -GoogleFileId "1RqcX7JZ1rVE6zAIuJJR1lkJNB2mffERx" -FileDestination $global_download
+large_file_download -GoogleFileId "1WCzscsc8Wn7URTZU93GEIXgP_DSDcdra" -FileDestination $user_download
+
 
 # Download desktop context files
 Invoke-WebRequest -Uri $url_desktop -OutFile $desktop_download
