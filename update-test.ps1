@@ -24,19 +24,19 @@ $user_download = "C:\reset\update\downloads\userctx.zip"
 $global_download = "C:\reset\update\downloads\globalctx.zip"
 $desktop_download = "C:\reset\update\downloads\desktopctx.zip"
 
-$url_global = "https://drive.google.com/file/d/1RqcX7JZ1rVE6zAIuJJR1lkJNB2mffERx/view?usp=sharing"
-$url_user = "https://drive.google.com/file/d/1WCzscsc8Wn7URTZU93GEIXgP_DSDcdra/view?usp=sharing"
-$url_desktop = "https://drive.google.com/file/d/1v_2ibnM0LJRwTBKr0cB5cvHPNW1tn4qQ/view?usp=sharing"
+$url_global = "https://drive.google.com/uc?export=download&id=1RqcX7JZ1rVE6zAIuJJR1lkJNB2mffERx"
+$url_user = "https://drive.google.com/uc?export=download&id=1WCzscsc8Wn7URTZU93GEIXgP_DSDcdra"
+$url_desktop = "https://drive.google.com/uc?export=download&id=1v_2ibnM0LJRwTBKr0cB5cvHPNW1tn4qQ"
 
 
 # Download user context files
-Start-BitsTransfer -Source $url_user -Destination $user_download
+Invoke-WebRequest -Uri $url_user -OutFile $user_download
 
 # Download global context files
-Start-BitsTransfer -Source $url_global -Destination $global_download
+Invoke-WebRequest -Uri $url_global -OutFile $global_download
 
 # Download desktop context files
-Start-BitsTransfer -Source $url_ddesktop -Destination $desktotp_download
+Invoke-WebRequest -Uri $url_desktop -OutFile $desktop_download
 
 Remove-Item "C:\reset\config.json" -Force -ErrorAction Ignore
 Start-BitsTransfer -Source "https://raw.githubusercontent.com/isakagren/HelloWorld-ComputerReset/master/config_1.0" -Destination "C:\reset\config.json"
