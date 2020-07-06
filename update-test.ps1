@@ -25,7 +25,7 @@ $global_download = "C:\reset\update\downloads\globalctx.zip"
 $desktop_download = "C:\reset\update\downloads\desktopctx.zip"
 
 $url_global = "https://drive.google.com/file/d/1RqcX7JZ1rVE6zAIuJJR1lkJNB2mffERx/view?usp=sharing"
-$url_user = "https://github.com/isakagren/HelloWorld-ComputerReset/raw/master/userctx_1.zip"
+$url_user = "https://drive.google.com/file/d/1WCzscsc8Wn7URTZU93GEIXgP_DSDcdra/view?usp=sharing"
 $url_desktop = "https://drive.google.com/file/d/1v_2ibnM0LJRwTBKr0cB5cvHPNW1tn4qQ/view?usp=sharing"
 
 
